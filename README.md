@@ -40,7 +40,7 @@ In addition, the color of the borders around the app indicates whether you curre
 - Grey borders: You have neither a plugin installed nor could we detect the plugin. In other words, you're connected to the Nintendo Network.
 
 ## Installing/Updating Plugins
-1. Select either "Juxtaposition" for Inkay (Pretendo version) or "Rosséverse" for Inkay (Roséverse).
+1. Select either "Juxtaposition" for Inkay (Pretendo version) or "Roséverse" for Inkay (Roséverse).
 2. If you have more than 1 Wii U environment installed, select the environment where you want the selected plugin downloaded. Use the D-Pad to navigate and press A to select the environment of choice. If you don't see this screen, it means you only have 1 environment (the default Aroma one), and the download will continue.
 > [!NOTE]
 > Downloading Inkay (Pretendo version) too many times in a row might cause a rate limit from GitHub; however, feel free to download Inkay (Roséverse) as many times as needed, since it is downloaded from our independent servers. 
