@@ -1,3 +1,8 @@
+/*/
+ *
+ * Config
+ *
+/*/
 {
     "editor.fontFamily": "'Cascadia Code', 'Consolas', monospace",
     "editor.tabSize": 4,

@@ -8,12 +8,10 @@ enum GX2Heap {
 };
 
 enum MEMAlign {
-    MEM_64_ALIGNMENT = 64,
-    MEM_256_ALIGNMENT = 256
+    MEM_DEFAULT_ALIGN = 64
 };
 
 namespace Heap {
-    inline constexpr u8 AlignMEM = 64;
     namespace MEM2 {
         void* Alloc(u32 size, u32 alignment);
         void Free(void* block);

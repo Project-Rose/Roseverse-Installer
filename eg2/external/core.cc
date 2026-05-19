@@ -40,7 +40,7 @@ namespace IO {
         }
         rewind(file);
 
-        void* data = Heap::MEM2::Alloc((u32)fileSize, MEM_64_ALIGNMENT);
+        void* data = Heap::MEM2::Alloc((u32)fileSize, MEM_DEFAULT_ALIGN);
         if (!data) {
             fclose(file);
             return nullptr;

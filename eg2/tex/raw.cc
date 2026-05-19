@@ -88,8 +88,8 @@ namespace Tex {
             {r, g, b, a}
         };
 
-        VTX* g_vertex_data      = (VTX*)(Heap::MEM2::Alloc(sizeof(vertices), MEM_64_ALIGNMENT));
-        F32Color* g_color_data  = (F32Color*)(Heap::MEM2::Alloc(sizeof(colors), MEM_64_ALIGNMENT));
+        VTX* g_vertex_data      = (VTX*)(Heap::MEM2::Alloc(sizeof(vertices), MEM_DEFAULT_ALIGN));
+        F32Color* g_color_data  = (F32Color*)(Heap::MEM2::Alloc(sizeof(colors), MEM_DEFAULT_ALIGN));
 
         memcpy(g_vertex_data, vertices, sizeof(vertices));
         memcpy(g_color_data, colors, sizeof(colors));
@@ -155,9 +155,9 @@ namespace Tex {
             {r, g, b, a}
         };
 
-        VTX* g_vertex_data      = (VTX*)(Heap::MEM2::Alloc(sizeof(vertices), MEM_64_ALIGNMENT));
-        UV* g_tex_data          = (UV*)(Heap::MEM2::Alloc(sizeof(uvs), MEM_64_ALIGNMENT));
-        F32Color* g_color_data  = (F32Color*)(Heap::MEM2::Alloc(sizeof(colors), MEM_64_ALIGNMENT));
+        VTX* g_vertex_data      = (VTX*)(Heap::MEM2::Alloc(sizeof(vertices), MEM_DEFAULT_ALIGN));
+        UV* g_tex_data          = (UV*)(Heap::MEM2::Alloc(sizeof(uvs), MEM_DEFAULT_ALIGN));
+        F32Color* g_color_data  = (F32Color*)(Heap::MEM2::Alloc(sizeof(colors), MEM_DEFAULT_ALIGN));
 
         memcpy(g_vertex_data, vertices, sizeof(vertices));
         memcpy(g_tex_data, uvs, sizeof(uvs));
@@ -214,9 +214,9 @@ namespace Tex {
             {1, 1, 1, 1}
         };
 
-        VTX* g_vertex_data      = (VTX*)(Heap::MEM2::Alloc(sizeof(vertices), MEM_64_ALIGNMENT));
-        UV* g_tex_data          = (UV*)(Heap::MEM2::Alloc(sizeof(uvs), MEM_64_ALIGNMENT));
-        F32Color* g_color_data  = (F32Color*)(Heap::MEM2::Alloc(sizeof(colors), MEM_64_ALIGNMENT));
+        VTX* g_vertex_data      = (VTX*)(Heap::MEM2::Alloc(sizeof(vertices), MEM_DEFAULT_ALIGN));
+        UV* g_tex_data          = (UV*)(Heap::MEM2::Alloc(sizeof(uvs), MEM_DEFAULT_ALIGN));
+        F32Color* g_color_data  = (F32Color*)(Heap::MEM2::Alloc(sizeof(colors), MEM_DEFAULT_ALIGN));
 
         memcpy(g_vertex_data, vertices, sizeof(vertices));
         memcpy(g_tex_data, uvs, sizeof(uvs));
@@ -273,9 +273,9 @@ namespace Tex {
             {1, 1, 1, 1}
         };
 
-        VTX* g_vertex_data      = (VTX*)(Heap::MEM2::Alloc(sizeof(vertices), MEM_64_ALIGNMENT));
-        UV* g_tex_data          = (UV*)(Heap::MEM2::Alloc(sizeof(uvs), MEM_64_ALIGNMENT));
-        F32Color* g_color_data  = (F32Color*)(Heap::MEM2::Alloc(sizeof(colors), MEM_64_ALIGNMENT));
+        VTX* g_vertex_data      = (VTX*)(Heap::MEM2::Alloc(sizeof(vertices), MEM_DEFAULT_ALIGN));
+        UV* g_tex_data          = (UV*)(Heap::MEM2::Alloc(sizeof(uvs), MEM_DEFAULT_ALIGN));
+        F32Color* g_color_data  = (F32Color*)(Heap::MEM2::Alloc(sizeof(colors), MEM_DEFAULT_ALIGN));
 
         memcpy(g_vertex_data, vertices, sizeof(vertices));
         memcpy(g_tex_data, uvs, sizeof(uvs));

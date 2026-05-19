@@ -1,11 +1,10 @@
 #include "eg2/sys/report.hh"
 #include "eg2/network/curl.hh"
 #include "eg2/external/core.hh"
-#include "eg2/sys/time.hh"
 #include "inkay/repos/core.hh"
 #include "inkay/repos/download.hh"
-#include "inkay/filesystem/zip.hh"
-#include "inkay/filesystem/files.hh"
+#include "inkay/fs/zip.hh"
+#include "inkay/fs/files.hh"
 #include <vector>
 #include <atomic>
 

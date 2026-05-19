@@ -10,7 +10,7 @@
 #include "inkay/repos/core.hh"
 #include "inkay/repos/versions.hh"
 #include "inkay/repos/download.hh"
-#include "inkay/filesystem/dirs.hh"
+#include "inkay/fs/dirs.hh"
 #include <memory>
 
 namespace Inkay {

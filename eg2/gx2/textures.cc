@@ -8,7 +8,7 @@
 #include "eg2/heap/mem2.hh"
 
 namespace GX2 {
-    static void InitTexture(GX2Texture* texture, u32 width, u32 height, u32 depth, u32 nMips, GX2CompMapType CMtype, GX2SurfaceFormat format, GX2SurfaceDim dim, GX2TileMode tileMode, u32 swizzle) {
+    static void InitTexture(GX2Texture* texture, u32 width, u32 height, u32 depth, u32 nMips, GX2SurfaceFormat format, GX2SurfaceDim dim, GX2TileMode tileMode, u32 swizzle) {
         memset(texture, 0, sizeof(GX2Texture));
 
         texture->surface.dim       = dim;
@@ -28,19 +28,7 @@ namespace GX2 {
         texture->viewNumMips    = nMips;
         texture->viewFirstSlice = 0;
         texture->viewNumSlices  = depth;
-
-        switch (CMtype) {
-            case GX2_COMPMAP_TYPE_H264:
-                texture->compMap = GX2_COMP_MAP(GX2_SQ_SEL_R, GX2_SQ_SEL_G, GX2_SQ_SEL_B, GX2_SQ_SEL_A);
-                break;
-            case GX2_COMPMAP_TYPE_LOOSE:
-                texture->compMap = GX2_COMP_MAP(GX2_SQ_SEL_R, GX2_SQ_SEL_0, GX2_SQ_SEL_0, GX2_SQ_SEL_1);
-                break;
-            case GX2_COMPMAP_TYPE_TEXTURE:
-            default:
-                texture->compMap = 0x0010203; 
-                break;
-        }
+        texture->compMap = 0x0010203; 
 
         for (int i = 0; i < 5; ++i) texture->regs[i] = 0;
 
@@ -48,8 +36,8 @@ namespace GX2 {
         GX2InitTextureRegs(texture);
     }
 
-    void CreateTexture(GX2Texture* tex, u32 w, u32 h, u32 depth, u32 nMips, GX2CompMapType CMtype, GX2SurfaceFormat format, GX2SurfaceDim dim, GX2TileMode TM, u32 swizzle, bool m1) {
-        InitTexture(tex, w, h, depth, nMips, CMtype, format, dim, TM, swizzle);
+    void CreateTexture(GX2Texture* tex, u32 w, u32 h, u32 depth, u32 nMips, GX2SurfaceFormat format, GX2SurfaceDim dim, GX2TileMode TM, u32 swizzle, bool m1) {
+        InitTexture(tex, w, h, depth, nMips, format, dim, TM, swizzle);
         GX2::AllocateTexture(tex, m1);
     }
 

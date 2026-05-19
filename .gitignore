@@ -1,0 +1,11 @@
+#
+# Hi David
+# I saw you writing
+#
+
+build/
+*.rpx
+
+*.elf
+*.o
+*.d

@@ -8,8 +8,7 @@ namespace DRC {
         Vector2i(): x(0), y(0) {}
         Vector2i(s32 x, s32 y) : x(x), y(y) {}
 
-        s32 x;
-        s32 y;
+        s32 x, y;
     };
 
     namespace Channel {

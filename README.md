@@ -13,12 +13,19 @@ Roséverse Installer is the easiest way to get connected to [Roséverse](https:/
 Roséverse Installer (mainly Inkay (Roséverse))  requires a homebrewed Wii U running the latest version of the [Aroma](https://github.com/wiiu-env/Aroma) environment, configured for coldboot (autoboot). Other configurations (specifically lacking coldboot) may cause issues with SpotPass connections to Pretendo's servers. Older homebrew environments (such as Tirumissu, Haxchi, etc.) and hackless methods aren't supported. If you haven't already, homebrew your Wii U using [this guide](https://wiiu.hacks.guide/)!
 
 ## Installation
+<!-- 
+
+//////////////////////////
+//// Thank you HBAS! ////
+////////////////////////
+
 ### Homebrew App Store
 The easiest way to install Roséverse Installer is to download it from the [HB App Store](https://hb-app.store/) directly on the console!
 
 [<img width="1080" height="300" alt="Get it on the HB App Store (shortcut link to the HB App Store page)" src="https://github.com/user-attachments/assets/b665a650-9f9b-4db0-a980-c326a1da74b5" style="width:35%; height:auto;" />](https://hb-app.store/wiiu/Roseverse-Installer)
 
 ### Manual Installation
+-->
 This installation process requires a computer or any other device that can read SD cards. You can alternatively use FTP using the [FTPiiU plugin](https://github.com/wiiu-env/ftpiiu_plugin) and [FileZilla](https://filezilla-project.org). The process below only covers the computer method. Please follow these steps very closely:
 
 1. Turn off your Wii U and eject the SD card. Insert the SD card into your device.

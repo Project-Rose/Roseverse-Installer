@@ -2,32 +2,22 @@
 # Roseverse Installer - Makefile
 # - Erikku Satō
 #--------------------------------------------------------------------------------
-# Now builds Custom AuroraChat Client!
 #--------------------------------------------------------------------------------
 
 ifeq ($(strip $(DEVKITPRO)),)
 $(error "Please set DEVKITPRO in your environment")
 endif
 
-ifeq ($(strip $(DEVKITPPC)),)
-$(error "Please set DEVKITPPC in your environment")
-endif
-
-WUT_ROOT := $(DEVKITPRO)/wut
-
-ifeq ($(strip $(WUT_ROOT)),)
-$(error "Please set WUT_ROOT in your environment")
-endif
-
-PORTLIBS_PATH := $(DEVKITPRO)/portlibs
-
-ifeq ($(strip $(PORTLIBS_PATH)),)
-$(error "Please set PORTLIBS_PATH in your environment")
-endif
-
 ifneq ($(strip $(V)), 1)
 Q ?= @
 endif
+
+#----------------------------------------
+# Public
+#----------------------------------------
+DEVKITPPC := $(DEVKITPRO)/devkitPPC
+WUT_ROOT := $(DEVKITPRO)/wut
+PORTLIBS_PATH := $(DEVKITPRO)/portlibs
 
 #----------------------------------------
 # Project
@@ -52,14 +42,9 @@ LIBINC		= -L$(WUT_ROOT)/lib -L$(PORTLIBS_PATH)/wiiu/lib -L$(PORTLIBS_PATH)/ppc/l
 
 SOURCES 	= $(subst ./,,$(shell find $(EG2DIR) $(TARGET) -name "*.cc"))
 
-ELFDATA		= $(TARGETDIR)/$(TARGET).dat
-ELFTABLE	= $(TARGETDIR)/$(TARGET).tab
-ELFASM		= $(TARGETDIR)/$(TARGET).asm
-
 CC       	= $(DEVKITPPC)/bin/powerpc-eabi-gcc
 CXX       	= $(DEVKITPPC)/bin/powerpc-eabi-g++
 STRIP 		= $(DEVKITPPC)/bin/powerpc-eabi-strip
-OBJDUMP		= $(DEVKITPPC)/bin/powerpc-eabi-objdump
 ELF2RPL		= $(DEVKITPRO)/tools/bin/elf2rpl
 WUHBTOOL 	= $(DEVKITPRO)/tools/bin/wuhbtool
 RPLIMPORT 	= $(DEVKITPRO)/tools/bin/rplimportgen
@@ -83,20 +68,20 @@ CXXOPT2    	= -fno-use-cxa-atexit -fno-thread-jumps -fno-rtti -flto -fno-common
 CXXOPT3 	= -fno-ident -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-stack-protector -fno-builtin
 CXXFLAGS   	= $(CXXBASE) $(CXXOPT) $(CXXOPT1) $(CXXOPT2) $(CXXOPT3)
 
-LIBS 		= $(LIBINC) -lwut -lcurl -lmbedtls -lmbedcrypto -lmbedx509 -lwut -lz -lbrotlicommon -lbrotlidec
+LIBS 		= $(LIBINC) -lwut -lcurl -lmbedtls -lmbedcrypto -lmbedx509 -lz -lbrotlicommon -lbrotlidec
 LDFLAGS 	= -flto=auto -Wno-odr -Wl,--gc-sections -Wl,--build-id=none -Wl,--Map=$(TARGETDIR)/$(TARGET).map $(ARCH) $(RPXSPECS) $(LIBS)
 
-WUHBMENICO      = $(METADIR)/iconTex.png
-WUHBTVSPLASH    = $(METADIR)/tv-splash.png
-WUHBDRCSPLASH   = $(METADIR)/drc-splash.png
+MENICO      = $(METADIR)/iconTex.png
+TVSPLASH    = $(METADIR)/bootTvTex.png
+DRCSPLASH   = $(METADIR)/bootDrcTex.png
 
 WUHBFLAGS = \
 	--name="Roseverse Installer" \
 	--short-name="Roseverse Installer" \
 	--author="Project Rose" \
-	--icon="$(WUHBMENICO)" \
-	--tv-image="$(WUHBTVSPLASH)" \
-	--drc-image="$(WUHBDRCSPLASH)" \
+	--icon="$(MENICO)" \
+	--tv-image="$(TVSPLASH)" \
+	--drc-image="$(DRCSPLASH)" \
 	--content="$(CONTENTDIR)"
 
 OBJFILES 	= $(patsubst %,$(OBJDIR)/%,$(SOURCES:.cc=.o))
@@ -136,9 +121,6 @@ $(OBJDIR)/%.o: %.cc
 $(TARGETDIR)/$(TARGETNAME).elf: $(OBJFILES)
 	$(Q)$(ECHO) "Linking $(TARGETNAME).elf"
 	$(Q)$(CXX) $(OBJFILES) $(LDFLAGS) -o $@
-	$(Q)$(OBJDUMP) -h $@ > $(ELFDATA)
-	$(Q)$(OBJDUMP) -t $@ > $(ELFTABLE)
-	$(Q)$(OBJDUMP) -d $@ > $(ELFASM)
 	$(Q)$(STRIP) --strip-unneeded $@
 
 #----------------------------------------
