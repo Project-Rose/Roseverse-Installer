@@ -16,22 +16,6 @@
 #include "eg2/heap/mem2.hh"
 
 namespace Tex {
-    LatteFont::LatteFont(const char* path, f32 size) {
-        u32 fileSize = 0;
-        void* data = IO::ReadFile(path, FILEMODE_BIN, &fileSize);
-
-        if (data && fileSize > 0) {
-            fontBuffer.assign((u8*)data, (u8*)data + fileSize);
-            Heap::MEM2::Free(data);
-            font = sft_loadmem(fontBuffer.data(), fontBuffer.size());
-        } else font = nullptr;
-
-        sft.font = font;
-        sft.xScale = size;
-        sft.yScale = size;
-        sft.flags = SFT_DOWNWARD_Y;
-    }
-
     LatteFont::LatteFont(OSFontType type, f32 size) {
         void* sharedFont = nullptr;
         u32 sharedSize = 0;
@@ -96,10 +80,11 @@ namespace Tex {
         };
         if (sft_render(&sft, glyph, img) < 0) return nullptr;
 
-        GX2Texture* tex = (GX2Texture*)Heap::MEM2::Alloc(sizeof(GX2Texture), MEM_64_ALIGNMENT);
+        GX2Texture* tex = (GX2Texture*)Heap::MEM2::Alloc(sizeof(GX2Texture), MEM_DEFAULT_ALIGN);
         memset(tex, 0, sizeof(GX2Texture));
-        GX2::CreateTexture(tex, m.minWidth, m.minHeight, 1, 1, GX2_COMPMAP_TYPE_TEXTURE,
-            GX2_SURFACE_FORMAT_UNORM_R8_G8_B8_A8, GX2_SURFACE_DIM_TEXTURE_2D, GX2_TILE_MODE_LINEAR_ALIGNED, 0, false);
+
+        GX2::CreateTexture(tex, m.minWidth, m.minHeight, 1, 1, GX2_SURFACE_FORMAT_UNORM_R8_G8_B8_A8, 
+            GX2_SURFACE_DIM_TEXTURE_2D, GX2_TILE_MODE_LINEAR_ALIGNED, 0, false);
 
         if (!tex->surface.image) {
             Heap::MEM2::Free(tex);

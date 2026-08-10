@@ -17,13 +17,13 @@ namespace IO {
         u8* pixels = stbi_load_from_memory(data, length, &width, &height, &channels, 4);
         if (!pixels) return nullptr;
 
-        GX2Texture* texture = (GX2Texture*)(Heap::MEM2::Alloc(sizeof(GX2Texture), MEM_64_ALIGNMENT));
+        GX2Texture* texture = (GX2Texture*)(Heap::MEM2::Alloc(sizeof(GX2Texture), MEM_DEFAULT_ALIGN));
         if (!texture) {
             stbi_image_free(pixels);
             return nullptr;
         }
 
-        GX2::CreateTexture(texture, width, height, 1, 1, GX2_COMPMAP_TYPE_TEXTURE, GX2_SURFACE_FORMAT_UNORM_R8_G8_B8_A8,
+        GX2::CreateTexture(texture, width, height, 1, 1, GX2_SURFACE_FORMAT_UNORM_R8_G8_B8_A8,
             GX2_SURFACE_DIM_TEXTURE_2D, GX2_TILE_MODE_LINEAR_ALIGNED, 0, false);
 
         if (!texture->surface.image) {
@@ -53,13 +53,13 @@ namespace IO {
         u8* pixels = stbi_load_from_memory(data, length, &width, &height, &channels, 4);
         if (!pixels) return nullptr;
 
-        GX2Texture* texture = (GX2Texture*)(Heap::MEM2::Alloc(sizeof(GX2Texture), MEM_64_ALIGNMENT));
+        GX2Texture* texture = (GX2Texture*)(Heap::MEM2::Alloc(sizeof(GX2Texture), MEM_DEFAULT_ALIGN));
         if (!texture) {
             stbi_image_free(pixels);
             return nullptr;
         }
 
-        GX2::CreateTexture(texture, width, height, 1, 1, GX2_COMPMAP_TYPE_TEXTURE, GX2_SURFACE_FORMAT_UNORM_R8_G8_B8_A8, 
+        GX2::CreateTexture(texture, width, height, 1, 1, GX2_SURFACE_FORMAT_UNORM_R8_G8_B8_A8, 
             GX2_SURFACE_DIM_TEXTURE_2D, GX2_TILE_MODE_LINEAR_ALIGNED, 0, false);
 
         if (!texture->surface.image) {
@@ -98,14 +98,14 @@ namespace IO {
 
         if (frameIndex < 0 || frameIndex >= frameCount) frameIndex = 0;
 
-        GX2Texture* texture = (GX2Texture*)(Heap::MEM2::Alloc(sizeof(GX2Texture), MEM_64_ALIGNMENT));
+        GX2Texture* texture = (GX2Texture*)(Heap::MEM2::Alloc(sizeof(GX2Texture), MEM_DEFAULT_ALIGN));
         if (!texture) {
             stbi_image_free(pixels);
             stbi_image_free(delays);
             return nullptr;
         }
 
-        GX2::CreateTexture(texture, width, height, 1, 1, GX2_COMPMAP_TYPE_TEXTURE, GX2_SURFACE_FORMAT_UNORM_R8_G8_B8_A8,
+        GX2::CreateTexture(texture, width, height, 1, 1, GX2_SURFACE_FORMAT_UNORM_R8_G8_B8_A8,
             GX2_SURFACE_DIM_TEXTURE_2D, GX2_TILE_MODE_LINEAR_ALIGNED, 0, false);
 
         if (!texture->surface.image) {

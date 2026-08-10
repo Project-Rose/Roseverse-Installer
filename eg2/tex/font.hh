@@ -25,7 +25,6 @@ typedef enum OSFontType {
 namespace Tex {
     class LatteFont {
         public:
-            LatteFont(const char* path, f32 size);
             LatteFont(OSFontType type, f32 size);
             ~LatteFont(void);
 

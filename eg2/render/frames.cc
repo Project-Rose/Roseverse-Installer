@@ -6,6 +6,8 @@
 #include "eg2/render/scan.hh"
 
 namespace Render {
+    RenderWhereIsGoing RenderGoingThru = RENDERING_GOING_NONE;
+
     static void SetBlendControl(GX2BlendMode e1, GX2BlendMode e2, GX2BlendCombineMode e3) { GX2SetBlendControl(GX2_RENDER_TARGET_0, e1, e2, e3, true, e1, e2, e3); }
 
     static void GX2Frame(void) {
@@ -31,12 +33,14 @@ namespace Render {
     void SetBGColor(F32Color& c) { WHBGfxClearColor(c.r, c.g, c.b, c.a); }
 
     void DRC(__Function__ func, F32Color _BGcolor) {
+        RenderGoingThru = RENDERING_GOING_DRC;
         BeginRenderDRC();
             Update(true);
             SetBGColor(_BGcolor);
             GX2Frame();
             if (func) func();
         FinishRenderDRC();
+        RenderGoingThru = RENDERING_GOING_NONE;
     }
 
     void DRC(__Function__ func, u32 _BGcolor) { DRC(func, Tex::U322F32(_BGcolor)); }
@@ -44,12 +48,14 @@ namespace Render {
     void DRC(__Function__ func) { DRC(func, Tex::U322F32(0x000000FF)); }
 
     void TV(__Function__ func, F32Color _BGcolor) {
+        RenderGoingThru = RENDERING_GOING_TV;
         BeginRenderTV();
             Update(false);
             SetBGColor(_BGcolor);
             GX2Frame();
             if (func) func();
         FinishRenderTV();
+        RenderGoingThru = RENDERING_GOING_NONE;
     }
 
     void TV(__Function__ func, u32 _BGcolor) { TV(func, Tex::U322F32(_BGcolor)); }

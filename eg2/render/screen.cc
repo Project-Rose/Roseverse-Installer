@@ -22,13 +22,13 @@ namespace Render {
 
     void SoftRebootConsole(void) {
         OSForceFullRelaunch();
-		SYSLaunchMenu();
+		ExitToMenu();
     }
 
     void FullyRebootConsole(void) { OSLaunchTitlel(OS_TITLE_ID_REBOOT, 0); }
 
     void Shutdown(void) {
-        SYS::Report::Log("EG2 - Render::Shutdown(): shutdown EG2\n");
+        SYS::Shutdown();
         WHBGfxShutdown(); 
         WHBProcShutdown();
     }

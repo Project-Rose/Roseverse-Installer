@@ -1,5 +1,6 @@
 #include <gx2/texture.h>
 #include "eg2/libs/typedefs.h"
+#include "eg2/gx2/allocators.hh"
 #include "eg2/heap/mem1.hh"
 #include "eg2/heap/mem2.hh"
 
@@ -16,7 +17,7 @@ namespace GX2 {
 
         uptr addr = (uptr)texture->surface.image;
 
-        if (addr >= 0xF4000000 && addr < 0xF6000000) Heap::MEM1::Free(texture->surface.image);
+        if (addr >= MEM1_SIZE_START && addr < MEM1_SIZE_END) Heap::MEM1::Free(texture->surface.image);
         else Heap::MEM2::Free(texture->surface.image);
 
         texture->surface.image = nullptr;

@@ -2,8 +2,16 @@
 
 #include "eg2/tex/raw.hh"
 
+enum RenderWhereIsGoing {
+    RENDERING_GOING_NONE,
+    RENDERING_GOING_TV,
+    RENDERING_GOING_DRC
+};
+
 namespace Render {
     typedef void (*__Function__)(void);
+
+    extern RenderWhereIsGoing RenderGoingThru;
 
     void BeginFrame(void);
     void EndFrame(void);

@@ -2,7 +2,6 @@
 # Roseverse Installer - Makefile
 # - Erikku Satō
 #--------------------------------------------------------------------------------
-# Now builds Custom AuroraChat Client!
 #--------------------------------------------------------------------------------
 
 ifeq ($(strip $(DEVKITPRO)),)
@@ -83,12 +82,12 @@ CXXOPT2    	= -fno-use-cxa-atexit -fno-thread-jumps -fno-rtti -flto -fno-common
 CXXOPT3 	= -fno-ident -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-stack-protector -fno-builtin
 CXXFLAGS   	= $(CXXBASE) $(CXXOPT) $(CXXOPT1) $(CXXOPT2) $(CXXOPT3)
 
-LIBS 		= $(LIBINC) -lwut -lcurl -lmbedtls -lmbedcrypto -lmbedx509 -lwut -lz -lbrotlicommon -lbrotlidec
+LIBS 		= $(LIBINC) -lcurl -lmbedtls -lmbedcrypto -lmbedx509 -lz -lbrotlicommon -lbrotlidec -lwut
 LDFLAGS 	= -flto=auto -Wno-odr -Wl,--gc-sections -Wl,--build-id=none -Wl,--Map=$(TARGETDIR)/$(TARGET).map $(ARCH) $(RPXSPECS) $(LIBS)
 
 WUHBMENICO      = $(METADIR)/iconTex.png
-WUHBTVSPLASH    = $(METADIR)/tv-splash.png
-WUHBDRCSPLASH   = $(METADIR)/drc-splash.png
+WUHBTVSPLASH    = $(METADIR)/bootTvTex.png
+WUHBDRCSPLASH   = $(METADIR)/bootDrcTex.png
 
 WUHBFLAGS = \
 	--name="Roséverse Installer" \
