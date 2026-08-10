@@ -72,6 +72,6 @@ namespace Inkay {
         }
 
         void JuxtDownload(void) { StartDownload("Juxt", Inkay::Repos::Web::JuxtFileURL); }
-        void RoseDownload(void) { StartDownload("Rose", Inkay::Repos::Web::RoseFileURL); }
+        void RoseDownload(void) { StartDownload("Rosé", Inkay::Repos::Web::RoseFileURL); }
     }
 }

@@ -63,7 +63,7 @@ namespace Inkay {
                         OSCAFESTDFont->RenderTextCenteredScaled(
                             0.0f, -90.0f,
                             RENDERRATIO_ASPECT_854x480, 420.0f, 100.0f,
-                            "Inkay (Roseverse) keeps all other Pretendo functionality intact"
+                            "Inkay (Roséverse) keeps all other Pretendo functionality intact"
                         );
 
                         OSCAFESTDFont->SetColor(Colors::Juxt);
@@ -77,7 +77,7 @@ namespace Inkay {
                         OSCAFESTDFont->RenderTextCenteredScaled(
                             15.0f, 90.0f,
                             RENDERRATIO_ASPECT_854x480, 160.0f, 100.0f,
-                            "Roseverse"
+                            "Roséverse"
                         );
 
                         OSCAFESTDFont->SetColor(Colors::Browser);
@@ -242,7 +242,7 @@ namespace Inkay {
                     Inkay::Download::State.store(DOWNLOADSTATE_SELECT_ENV);
                     Inkay::Dirs::LoadEnvironments();
                 } else if (DRC::IsTouchInsideSingle(302.0f, 297.5f, 400.0f, 85.0f)) {
-                    Inkay::Download::PendingVersion = "Rose";
+                    Inkay::Download::PendingVersion = "Rosé";
                     Inkay::Download::State.store(DOWNLOADSTATE_SELECT_ENV);
                     Inkay::Dirs::LoadEnvironments();
                 }
@@ -260,14 +260,14 @@ namespace Inkay {
                         Inkay::Download::State.store(DOWNLOADSTATE_DOWNLOADING);
 
                         if (Inkay::Download::PendingVersion == "Juxt") Inkay::Download::JuxtDownload();
-                        else if (Inkay::Download::PendingVersion == "Rose") Inkay::Download::RoseDownload();
+                        else if (Inkay::Download::PendingVersion == "Rosé") Inkay::Download::RoséDownload();
                     }
                 } else {
                     Inkay::Download::SelectedEnvironment = Inkay::Dirs::gEnvironments[Inkay::Dirs::gSelectedEnv];
                     Inkay::Download::State.store(DOWNLOADSTATE_DOWNLOADING);
 
                     if (Inkay::Download::PendingVersion == "Juxt") Inkay::Download::JuxtDownload();
-                    else if (Inkay::Download::PendingVersion == "Rose") Inkay::Download::RoseDownload();
+                    else if (Inkay::Download::PendingVersion == "Rosé") Inkay::Download::RoseDownload();
                 } 
 
                 if (DRC::IsTouchInsideSingle(760.0f, 435.0f, 150.0f, 70.0f)) Inkay::Repos::AboutBrowserURL();

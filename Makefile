@@ -91,9 +91,9 @@ WUHBTVSPLASH    = $(METADIR)/tv-splash.png
 WUHBDRCSPLASH   = $(METADIR)/drc-splash.png
 
 WUHBFLAGS = \
-	--name="Roseverse Installer" \
-	--short-name="Roseverse Installer" \
-	--author="Project Rose" \
+	--name="Roséverse Installer" \
+	--short-name="Roséverse Installer" \
+	--author="Project Rosé Team" \
 	--icon="$(WUHBMENICO)" \
 	--tv-image="$(WUHBTVSPLASH)" \
 	--drc-image="$(WUHBDRCSPLASH)" \
