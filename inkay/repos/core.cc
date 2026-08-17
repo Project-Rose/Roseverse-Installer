@@ -11,10 +11,11 @@ namespace Inkay {
     namespace Repos {
         namespace Web {
             std::string JuxtFileURL;
-            std::string RoseFileURL = "https://projectrose.cafe/api/inkay-roseverse/latest"; // Rosé provides link
+            std::string RoseFileURL;
         }
 
         static const char* JuxtREPO = "https://api.github.com/repos/PretendoNetwork/Inkay/releases/latest";
+        static const char* roseREPO = "https://api.github.com/repos/Project-Rose/Inkay-Roseverse/releases/latest";
         static const char* AromaAPI = "https://aroma.foryour.cafe/api/check_versions";
         static const char* BrowserURL = "https://projectrose.cafe/roseverse_installer/help";
 
@@ -25,6 +26,7 @@ namespace Inkay {
             Network::SetHeader("X-GitHub-Api-Version: 2022-11-28");
 
             Inkay::JSON::ParseGitHubDownloadURL(JuxtREPO, Web::JuxtFileURL);
+            Inkay::JSON::ParseGitHubDownloadURL(roseREPO, Web::RoseFileURL);
 
             Inkay::JSON::ParseAromaSHA1(AromaAPI, Inkay::Versions::WMS::JuxtSHA1, Inkay::Versions::WPS::JuxtSHA1);
             Inkay::JSON::ParseAromaSHA1(AromaAPI, Inkay::Versions::WMS::JuxtSHA1, Inkay::Versions::WPS::JuxtSHA1);

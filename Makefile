@@ -1,5 +1,5 @@
 #--------------------------------------------------------------------------------
-# Roseverse Installer - Makefile
+# Roseversé Installer - Makefile
 # - Erikku Satō
 #--------------------------------------------------------------------------------
 # Now builds Custom AuroraChat Client!
@@ -91,9 +91,9 @@ WUHBTVSPLASH    = $(METADIR)/tv-splash.png
 WUHBDRCSPLASH   = $(METADIR)/drc-splash.png
 
 WUHBFLAGS = \
-	--name="Roseverse Installer" \
-	--short-name="Roseverse Installer" \
-	--author="Project Rose" \
+	--name="Roseversé Installer" \
+	--short-name="Roseversé Installer" \
+	--author="Project Rosé" \
 	--icon="$(WUHBMENICO)" \
 	--tv-image="$(WUHBTVSPLASH)" \
 	--drc-image="$(WUHBDRCSPLASH)" \
